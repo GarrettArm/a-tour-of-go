@@ -5,6 +5,18 @@ import (
 	"math/cmplx"
 )
 
+/*
+Basic Types:
+	bool
+	string
+	int	int8	int16	int32	int64
+	uint	uint8	uint16	uint32	uint64	uintptr
+	byte	(alias for uint8)
+	rune	(alias for int32)
+	float32	float64
+	comples64	complex128
+*/
+
 var (
 	ToBe   bool       = false
 	MaxInt uint64     = 1<<64 - 1
