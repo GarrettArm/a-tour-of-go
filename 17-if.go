@@ -14,7 +14,11 @@ func sqrt(x float64) string {
 
 func pow(x, n, lim float64) float64 {
 	if v := math.Pow(x, n); v < lim {
+		// v is only in this scope
 		return v
+	} else {
+		// v is out of scope
+		fmt.Printf("%g >= %g\n", v, lim)
 	}
 	return lim
 }
