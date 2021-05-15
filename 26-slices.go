@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+/*
+  Slice literal creates an anonymous array & fills it with values
+*/
+
 func main() {
 	q := []int{2, 3, 5, 7, 11, 13}
 	fmt.Println(q)
