@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 type I interface {
 	M()
@@ -10,12 +13,27 @@ type T struct {
 	S string
 }
 
-// add M() method to T type
-func (t T) M() {
+func (t *T) M() {
 	fmt.Println(t.S)
 }
 
+type F float64
+
+func (f F) M() {
+	fmt.Println(f)
+}
+
+func describe(i I) {
+	fmt.Printf("(%v, %T)\n", i, i)
+}
+
 func main() {
-	var i I = T{"hello"}
+	var i I
+	i = &T{"Hello"}
+	describe(i) // (&{Hello}, *main.T)
+	i.M()
+
+	i = F(math.Pi)
+	describe(i) // (3.1415, main.F)
 	i.M()
 }
