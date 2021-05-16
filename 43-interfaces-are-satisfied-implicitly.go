@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
 type I interface {
@@ -14,13 +13,11 @@ type T struct {
 }
 
 func (t *T) M() {
+	if t == nil {
+		fmt.Println("<nil>")
+		return
+	}
 	fmt.Println(t.S)
-}
-
-type F float64
-
-func (f F) M() {
-	fmt.Println(f)
 }
 
 func describe(i I) {
@@ -29,11 +26,15 @@ func describe(i I) {
 
 func main() {
 	var i I
-	i = &T{"Hello"}
-	describe(i) // (&{Hello}, *main.T)
-	i.M()
+	var t *T
+	i = t
+	describe(i) // (<nil>, *main.T)
+	i.M()       // <nil>
+	// empty structure is nil
+	// but interface with empty value is non-nil
+	// nil-receiver.M() can be handled gracefully.
 
-	i = F(math.Pi)
-	describe(i) // (3.1415, main.F)
-	i.M()
+	i = &T{"hello"}
+	describe(i) // (&{hello}, *main.T)
+	i.M()       // hello
 }
