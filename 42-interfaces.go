@@ -14,16 +14,14 @@ func main() {
 	f := MyFloat(-math.Sqrt2)
 	v := Vertex{3, 4}
 
-	a = f  // MyFloat implements Abser
-	b = &v // *Vertex implements Abser
-
-	fmt.Println(b.Abs())
-	fmt.Println(a.Abs())
+	a = f                // MyFloat implements Abser
+	b = &v               // *Vertex implements Abser
+	fmt.Println(b.Abs()) // 5
+	fmt.Println(a.Abs()) // 1.4142
 
 	// var c Abser
 	// c = v // Vertex does not implement Abser // panic
 	// fmt.Println(c.Abs())  // cannot work
-
 }
 
 type MyFloat float64
