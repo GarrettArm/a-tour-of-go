@@ -10,7 +10,7 @@ type Vertex struct {
 }
 
 func (v Vertex) Abs() float64 {
-	// Abs() as a regular function
+	// Abs() as a method on Vertex
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 

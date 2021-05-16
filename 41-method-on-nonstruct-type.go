@@ -20,3 +20,7 @@ func main() {
 	f = MyFloat(1.24)
 	fmt.Println(f.Abs())
 }
+
+/*
+  Cannot only attach a method on a locally-defined type
+*/
